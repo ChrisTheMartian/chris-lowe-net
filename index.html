@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chris Lowe — AI-Native Knowledge Systems & Practical PM</title>
+  <meta name="description" content="I build things that help people. The tools change — media, tech, AI — the goal doesn't. Welcome to my commonplace and AI-native knowledge system.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#" class="logo">chris-lowe.net</a>
+    <ul class="nav-links">
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#diagnostic">Health Check</a></li>
+      <li><a href="#articles">Content Pillars</a></li>
+      <li><a href="#services">Work With Me</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openInquiryModal('AI-Native PKM Audit')">Book Advisory Session</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <span class="badge">Version 1 — The Commonplace OS</span>
+    <h1>I build things that help people.<br><span>The tools change — the goal doesn't.</span></h1>
+    <p class="hero-positioning">
+      Welcome to my commonplace. I explore the intersection of **AI-native knowledge systems**, practical project management information systems (PMIS), and designing for the **Organic Brain** (AuDHD executive function).
+    </p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="openInquiryModal('AI-Native PKM Audit')">Explore The Service Stream</button>
+      <a href="#articles" class="btn-secondary">Read Foundational Drafts</a>
+    </div>
+  </header>
+
+  <!-- Philosophy / 4 Layers Section -->
+  <section id="philosophy">
+    <div class="section-header">
+      <h2>The Commonplace Architecture</h2>
+      <p>Most note-taking apps turn you into a filing cabinet. Commonplace is structured as a 4-layer cascade where every note, tool, and cadence serves actionable thought.</p>
+    </div>
+    <div class="layers-grid">
+      <div class="layer-card">
+        <div class="layer-num">Layer 01</div>
+        <div class="layer-title">Mission</div>
+        <div class="layer-desc">To extend and sharpen thinking—holding decisions made, ideas synthesized, and context needed again. Not storing everything ever read.</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">Layer 02</div>
+        <div class="layer-title">Values</div>
+        <div class="layer-desc">Clarity, Intentionality, Depth, Serendipity, Leanness, Continuity, and Action. If you can't find or act on it effortlessly, the system has failed.</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">Layer 03</div>
+        <div class="layer-title">Principles</div>
+        <div class="layer-desc">Write thoughts not facts. Prefer links over copies. Filter aggressively at capture. Todoist tracks doing; Obsidian tracks thinking.</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">Layer 04</div>
+        <div class="layer-title">Protocols</div>
+        <div class="layer-desc">Repeatable operational step-by-steps: Daily Standups, Tool-Tier Ladders (cheapest AI tool first), and AuDHD reflective journaling.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagnostic Tool (Health Check) -->
+  <section id="diagnostic">
+    <div class="section-header">
+      <h2>System Health Check</h2>
+      <p>Where is your current digital operating system breaking down? Click a pain point below to see how Commonplace solves it.</p>
+    </div>
+    <div class="diagnostic-container">
+      <div class="pain-points">
+        <button class="pain-btn active" data-pain="pain1">
+          <span>"My task list is a 200-item graveyard"</span>
+          <span>&rarr;</span>
+        </button>
+        <button class="pain-btn" data-pain="pain2">
+          <span>"AI hallucinates when reading my notes"</span>
+          <span>&rarr;</span>
+        </button>
+        <button class="pain-btn" data-pain="pain3">
+          <span>"I abandon my system when motivation drops"</span>
+          <span>&rarr;</span>
+        </button>
+        <button class="pain-btn" data-pain="pain4">
+          <span>"I spend more time organizing than executing"</span>
+          <span>&rarr;</span>
+        </button>
+      </div>
+      <div class="solution-panel">
+        <div class="solution-badge" id="solution-badge">Protocol: Actionability Over Completeness</div>
+        <h3 class="solution-title" id="solution-title">Sniper, Not Sprayer Execution</h3>
+        <p class="solution-desc" id="solution-desc">
+          In Commonplace, Todoist tracks doing and Obsidian tracks thinking. We eliminate task graveyards by enforcing the GTD Four-Criteria Filter (Context → Time Available → Energy → Priority) and aggressively cutting anything that doesn't earn its place.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Pillars / Articles Grid -->
+  <section id="articles">
+    <div class="section-header">
+      <h2>Foundational Content Pillars</h2>
+      <p>A hybrid pipeline of writing and system blueprints. Read the initial drafts below as I build in public.</p>
+    </div>
+    <div class="articles-grid" id="articles-grid">
+      <!-- Populated dynamically by script.js from articles.js -->
+    </div>
+  </section>
+
+  <!-- Service Stream / Offerings -->
+  <section id="services">
+    <div class="section-header">
+      <h2>The Service Stream</h2>
+      <p>Whether you need a custom AI-native second brain built from scratch or practical PM ops for your creative venture, let's build together.</p>
+    </div>
+    <div class="offerings-grid">
+      <div class="offering-card">
+        <div>
+          <div class="offering-tag">Tier 1 • Coming Soon</div>
+          <h3 class="offering-title">Commonplace OS Template & Course</h3>
+          <p class="offering-desc">The complete, turnkey Obsidian vault template, schema, AI agent instructions, and video walkthroughs. Launching in 30 days.</p>
+        </div>
+        <form id="waitlist-form" style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+          <input type="email" placeholder="Enter your email" required class="form-control" style="padding: 0.7rem 1rem; font-size: 0.85rem;">
+          <button type="submit" class="btn-primary" style="padding: 0.7rem 1.2rem; font-size: 0.85rem; white-space: nowrap;">Join Waitlist</button>
+        </form>
+      </div>
+      
+      <div class="offering-card featured">
+        <div>
+          <div class="offering-tag">Tier 2 • Live Advisory</div>
+          <h3 class="offering-title">1-on-1 System Architecture & AI Setup</h3>
+          <p class="offering-desc">Book a private advisory session. We will audit your current knowledge workflows, implement local AI agent playbooks, or build a custom PMIS in Markdown.</p>
+        </div>
+        <button class="btn-primary" style="width: 100%; text-align: center; margin-top: 1.5rem;" onclick="openInquiryModal('1-on-1 AI & PKM Architecture')">Book Advisory Session</button>
+      </div>
+
+      <div class="offering-card">
+        <div>
+          <div class="offering-tag">Tier 3 • Community</div>
+          <h3 class="offering-title">Like-Minded Builders & Operators</h3>
+          <p class="offering-desc">Are you a Technical PM, AuDHD creator, or AI operator? Let's connect, share workflows, and exchange research.</p>
+        </div>
+        <button class="btn-secondary" style="width: 100%; text-align: center; margin-top: 1.5rem;" onclick="openInquiryModal('Community & Connection')">Connect With Chris</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Chris Section -->
+  <section id="about">
+    <div class="about-box">
+      <div class="about-text">
+        <h3>About Chris Lowe</h3>
+        <p>I am a builder, operator, and project manager with 10 years of experience across media production, enterprise L&D, and AI operations. Originally from Sheffield, UK, I am based in Texas and passionate about creating systems that empower individuals and organizations.</p>
+        <p>Holding both a PMP (top percentile) and an MBA, my philosophy is simple: while the tools constantly change—from analogue film to digital tech to autonomous AI agents—the human goal of building meaningful things never changes.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-val">10+</div>
+          <div class="stat-label">Years in Media & AI Ops</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">PMP</div>
+          <div class="stat-label">Top Percentile Certified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">MBA</div>
+          <div class="stat-label">Strategy & Execution</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">AuDHD</div>
+          <div class="stat-label">Human-Centric Design</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">chris-lowe.net</div>
+    <p>&copy; 2026 Chris Lowe. Built in public with Commonplace & Antigravity.</p>
+  </footer>
+
+  <!-- Reader Modal -->
+  <div class="modal-overlay" id="reader-modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModals()">&times;</button>
+      <div class="article-meta" style="margin-bottom: 0.5rem;">
+        <span class="article-pillar" id="modal-article-pillar"></span>
+        <span style="color: var(--text-muted);">Foundational Draft • Review Pipeline</span>
+      </div>
+      <h2 id="modal-article-title" style="font-family: var(--font-heading); font-size: 2rem; color: var(--text-bright); margin-bottom: 0.5rem; line-height: 1.2;"></h2>
+      <p id="modal-article-subtitle" style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 2rem; font-weight: 500;"></p>
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 2rem;">
+      <div class="modal-body" id="modal-article-body"></div>
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h4 style="color: var(--text-bright); margin-bottom: 0.2rem;">Have thoughts or feedback on this draft?</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Let's discuss workflows or iterate on this system together.</p>
+        </div>
+        <button class="btn-primary" onclick="closeModals(); openInquiryModal('Article Feedback & Discussion')">Discuss This Draft</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inquiry Modal -->
+  <div class="modal-overlay" id="inquiry-modal">
+    <div class="modal-content" style="max-width: 550px;">
+      <button class="modal-close" onclick="closeModals()">&times;</button>
+      <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--text-bright); margin-bottom: 0.5rem;">Start the Conversation</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">While I finalize my Cal.com booking link, send your inquiry below and I will get back to you directly.</p>
+      <form id="inquiry-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" required class="form-control" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" required class="form-control" placeholder="jane@example.com">
+        </div>
+        <div class="form-group">
+          <label>Area of Interest</label>
+          <select id="inquiry-interest" class="form-control" style="background: #101626;">
+            <option value="AI-Native PKM Audit">1-on-1 AI-Native PKM Audit & Setup</option>
+            <option value="PMIS in Markdown">PMIS in Markdown Architecture</option>
+            <option value="AuDHD Workflow Coaching">AuDHD Executive Function Coaching</option>
+            <option value="Community & Connection">Community & Connection</option>
+            <option value="General Inquiry">General Inquiry / Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How can I help or what are you working on?</label>
+          <textarea class="form-control" placeholder="Share a bit about your knowledge setup, project goals, or what you'd like to explore..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="articles.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Simple Analytics Proxy (Privacy-preserving, zero cookie tracking) -->
+  <script async src="/api/sa.js"></script>
+  <noscript><img src="/api/sa/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+</html>

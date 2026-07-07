@@ -1,0 +1,13 @@
+# Build output (generated automatically by Netlify)
+dist/
+__pycache__/
+*.pyc
+
+# OS and system files
+.DS_Store
+*.log
+.env
+
+# Editor directories
+.vscode/
+.idea/
