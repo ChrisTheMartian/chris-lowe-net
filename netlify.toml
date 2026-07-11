@@ -22,6 +22,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/api/sa/auto-events.js"
+  to = "https://scripts.simpleanalyticscdn.com/auto-events.js"
+  status = 200
+  force = true
+
 # ============================================================
 # Security & Privacy Headers
 # ============================================================

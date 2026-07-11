@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       painBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const key = btn.getAttribute('data-pain');
+      if (window.sa_event) window.sa_event("diagnostic_selected_" + key);
       const data = diagnosticData[key];
       if (data) {
         solBadge.style.opacity = 0;
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.openArticleModal = (id) => {
     const art = ARTICLES_DATA.find(a => a.id === id);
     if (!art || !readerModal) return;
+    if (window.sa_event) window.sa_event("article_opened_" + id.replace(/-/g, "_"));
     document.getElementById('modal-article-pillar').textContent = art.pillar;
     document.getElementById('modal-article-title').textContent = art.title;
     document.getElementById('modal-article-subtitle').textContent = art.subtitle;
@@ -108,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.openInquiryModal = (serviceType = 'General Inquiry') => {
     if (!inquiryModal) return;
+    if (window.sa_event) window.sa_event("inquiry_modal_opened");
     const select = document.getElementById('inquiry-interest');
     if (select) select.value = serviceType;
     inquiryModal.classList.add('active');
@@ -139,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Sending Inquiry...';
       btn.disabled = true;
       setTimeout(() => {
+        if (window.sa_event) window.sa_event("inquiry_form_submitted");
         btn.textContent = '✓ Inquiry Sent! I will be in touch.';
         btn.style.background = '#10B981';
         inquiryForm.reset();
@@ -159,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const input = waitlistForm.querySelector('input[type="email"]');
       const btn = waitlistForm.querySelector('button[type="submit"]');
       if (input.value) {
+        if (window.sa_event) window.sa_event("waitlist_form_submitted");
         btn.textContent = '✓ You are on the Waitlist!';
         btn.style.background = '#10B981';
         input.value = '';
