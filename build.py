@@ -132,16 +132,16 @@ def main():
             
             # The body content
             article_body = f"""
-            <main class="article-page" style="max-width: 800px; margin: 120px auto 60px auto; padding: 0 20px;">
-              <a href="/" style="color: var(--accent-cyan); text-decoration: none; margin-bottom: 2rem; display: inline-block;">&larr; Back to Home</a>
-              <div class="article-meta" style="margin-bottom: 0.5rem;">
+            <main class="article-page" style="max-width: 800px; margin: 80px auto 60px auto; padding: 0 20px;">
+              <a href="/" style="color: var(--text-muted); text-decoration: none; margin-bottom: 2rem; display: inline-block; font-weight: 500;">&larr; Back to Home</a>
+              <div class="article-meta" style="margin-bottom: 1rem; display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
                 <span class="article-pillar">{art['pillar']}</span>
-                <span style="color: var(--text-muted);">{art['date']} • {art['readTime']}</span>
+                <span>{art['date']} • {art['readTime']}</span>
               </div>
-              <h1 style="font-family: var(--font-heading); font-size: 2.5rem; color: var(--text-bright); margin-bottom: 0.5rem; line-height: 1.2;">{art['title']}</h1>
-              <p style="color: var(--accent-cyan); font-size: 1.25rem; margin-bottom: 2rem; font-weight: 500;">{art['subtitle']}</p>
-              <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 2rem;">
-              <div class="modal-body" style="font-size: 1.1rem; line-height: 1.6;">
+              <h1 style="font-family: var(--font-heading); font-size: 3rem; color: var(--text-heading); margin-bottom: 1rem; line-height: 1.2;">{art['title']}</h1>
+              <p style="color: var(--text-main); font-size: 1.25rem; margin-bottom: 2rem;">{art['subtitle']}</p>
+              <hr style="border: 0; border-top: 1px solid var(--border-color); margin-bottom: 2.5rem;">
+              <div class="modal-body" style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main);">
                 {art['content']}
               </div>
             </main>
