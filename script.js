@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3 class="article-title">${art.title}</h3>
           <p class="article-subtitle">${art.subtitle}</p>
         </div>
-        <button class="read-btn" onclick="openArticleModal('${art.id}')">
+        <a class="read-btn" href="/${art.id}/" style="display: inline-block; text-align: center; text-decoration: none;">
           Read Foundational Draft <span>&rarr;</span>
-        </button>
+        </a>
       </div>
     `).join('');
   }

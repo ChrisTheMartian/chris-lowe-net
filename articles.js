@@ -3,133 +3,34 @@
 
 const ARTICLES_DATA = [
   {
-    id: "ai-native-systems",
+    id: "building-commonplace",
     pillar: "AI & Knowledge Systems",
-    title: "Why Your Second Brain Needs to be AI-Native",
-    subtitle: "Traditional note-taking broke when autonomous agents arrived. Here is how to structure a knowledge system built for two intelligences.",
+    title: "I Gave My AI a Memory. It Started Running My Life.",
+    subtitle: "The real story of why I built Commonplace, and what it caught before it cost me a job interview.",
     date: "July 2026",
-    readTime: "6 min read",
-    summary: "Most PKM systems (BASB, LYT, Zettelkasten) were designed for human eyeballs alone. When you introduce autonomous AI agents, unstructured notes become a hallucination hazard. Discover the architecture of Commonplace: schema-driven vaults, closed vocabularies, and the Tool-Tier Ladder.",
+    dateISO: "2026-07-22",
+    readTime: "3 min read",
+    summary: "Why I built a personal AI operating system called Commonplace, after a decade of note-taking systems, and AI memory itself, failing me the same way.",
     content: `
-      <h3>The End of the Filing Cabinet</h3>
-      <p>For over a decade, the Personal Knowledge Management (PKM) community has been obsessed with human retrieval. Methods like Tiago Forte's <em>Building a Second Brain</em> (BASB) or Nick Milo's <em>Linking Your Thinking</em> (LYT) taught us how to organize notes so our future selves could find them.</p>
-      <p>But in 2026, the primary consumer of your notes is no longer just your future self. It is your **synthetic partner**—autonomous AI agents operating directly inside your filesystem.</p>
-
-      <h3>Why Traditional PKM Fails in the Agent Era</h3>
-      <p>When an AI agent enters a traditional note-taking vault, it encounters chaos:</p>
-      <ul>
-        <li><strong>Ambiguous naming:</strong> Folders like <code>/Misc</code> or <code>/Ideas</code> give agents zero routing determinism.</li>
-        <li><strong>Unbounded vocabularies:</strong> If one note says <code>status: active</code>, another says <code>status: in-progress</code>, and a third says <code>state: open</code>, programmatic queries fail silently.</li>
-        <li><strong>The Desert of Knowledge:</strong> Vaults bloated with thousands of clipped web articles dilute search relevance, causing agents to retrieve someone else's opinion instead of your original synthesis.</li>
-      </ul>
-
-      <h3>The Commonplace Solution: Built for Two Intelligences</h3>
-      <p>In the Commonplace architecture, we design for two distinct users simultaneously: the **Organic Brain** (you) and the **Synthetic Brain** (your AI).</p>
-      <p>To make a vault truly AI-native, we enforce three architectural pillars:</p>
-      
-      <h4>1. The Single Source of Truth Schema</h4>
-      <p>Every agent entering the vault reads a canonical <code>schema.md</code> file before taking a single action. This file defines the exact hierarchy of Mission → Values → Principles → Protocols. It establishes strict rules: no tasks in Markdown (tasks belong in Todoist), no flat data trackers in notes (trackers belong in Airtable), and strict two-way link requirements.</p>
-
-      <h4>2. Closed Vocabularies & Frontmatter Discipline</h4>
-      <p>We eliminate guesswork by enforcing closed vocabularies in YAML frontmatter. For example, our Project Management Information System (PMIS) allows only eight strict status tokens: <code>Backlog · Next · Doing · Waiting · Blocked · Parked · Done · Cancelled</code>. Anything off-list is invisible to system dashboards.</p>
-
-      <h4>3. The Tool-Tier Ladder (Cheapest Tool First)</h4>
-      <p>AI tokens and execution time are valuable resources. Commonplace enforces a strict escalation ladder for agents:</p>
-      <ol>
-        <li><strong>Native Knowledge:</strong> Read local filesystem notes first.</li>
-        <li><strong>Dedicated MCP Connectors:</strong> Use structured API tools (Todoist, Airtable, Google Drive) before web scraping.</li>
-        <li><strong>Search & Fetch:</strong> Targeted queries only when local data is insufficient.</li>
-        <li><strong>Browser Automation:</strong> The last resort. Never default to heavy GUI automation when a clean API or local note exists.</li>
-      </ol>
-
-      <h3>The Takeaway</h3>
-      <p>An AI-native second brain isn't about letting AI write your notes for you. It's about structuring your digital environment so an autonomous agent can act as a true chief of staff—navigating your projects, preparing your daily briefings, and executing administrative workflows without breaking a sweat.</p>
-    `
-  },
-  {
-    id: "pmis-in-markdown",
-    pillar: "Project Management & Operations",
-    title: "The PMIS in Markdown: Structuring Chaos into Clarity",
-    subtitle: "How to build an enterprise-grade Project Management Information System inside plain text notes without bloated SaaS overhead.",
-    date: "July 2026",
-    readTime: "7 min read",
-    summary: "Enterprise PM tools are built for 50-person teams, not high-output individual operators. Learn how to adapt PMI's portfolio → program → project hierarchy into lightweight Markdown hubs, leveraging Obsidian Bases for live dashboards without vendor lock-in.",
-    content: `
-      <h3>The Operator's Dilemma</h3>
-      <p>If you manage complex projects across technology, media, and operations, you know the frustration of enterprise project management tools. Jira, Asana, and MS Project are designed for cross-functional compliance and reporting up the corporate chain. For a solo operator or technical project manager building personal ventures, they introduce immense administrative friction.</p>
-      <p>Yet, the alternative—keeping projects as loose checklists in a note-taking app—inevitably leads to dropped balls and strategic drift.</p>
-
-      <h3>The Commonplace PMIS: PMI Rigor in Plain Text</h3>
-      <p>In Commonplace, we implement a lightweight **Project Management Information System (PMIS)** directly in Markdown, modeled on the Project Management Institute (PMI) standard hierarchy:</p>
-      <ul>
-        <li><strong>Portfolio:</strong> Your overarching life and professional domains (e.g., Career, Finance, Websites).</li>
-        <li><strong>Program:</strong> A coordinated group of related projects managed together to achieve a combined benefit (e.g., <em>2026 Job Search</em> or <em>System Maintenance</em>).</li>
-        <li><strong>Project:</strong> A temporary endeavor with a defined start, end, and unique deliverable (e.g., <em>Stand Up chris-lowe.net</em>).</li>
-        <li><strong>Subproject:</strong> A manageable chunk broken out of a massive project for execution clarity.</li>
-      </ul>
-
-      <h3>The Four Frontmatter Pillars</h3>
-      <p>Every project note in Commonplace acts as a routing hub (MOC) rather than a dumping ground for meeting notes. To power our live dashboards, each project index note carries exactly four frontmatter fields:</p>
-      <pre><code>---
-type: project
-parent: "[[2026 Job Search]]"
-status: Doing
-priority: 1
-deadline: 2026-08-01
----</code></pre>
-      <p>By keeping these fields standardized, we use **Obsidian Bases** to render live Kanban boards, priority matrix tables, and subproject hierarchies directly over our local markdown files—with zero manual duplication.</p>
-
-      <h3>The Core Project Note Anatomy</h3>
-      <p>A project note's primary job is to **route to documents, not to hold their raw content**. Our standardized layout ensures instant AuDHD scannability:</p>
-      <ul>
-        <li><strong>Status & One-Line Purpose:</strong> Immediate orientation.</li>
-        <li><strong>📂 Documents:</strong> The central routing hub linking to Charters, Risk Registers, budgets, or external Google Drive collaborative folders.</li>
-        <li><strong>🔭 Open Loops:</strong> Current actionable threads and pending decisions—kept lean and pointed directly at Todoist for execution.</li>
-        <li><strong>🔗 Related:</strong> Two-way wikilinks connecting the project to relevant people, assets, and historical periodic logs.</li>
-      </ul>
-
-      <h3>Why This Beats SaaS</h3>
-      <p>When your PMIS lives in plain text, you own your data forever. There are no subscription price hikes, no sluggish web wrappers, and no artificial barriers between your thinking space and your execution engine.</p>
-    `
-  },
-  {
-    id: "designing-for-organic-brain",
-    pillar: "Designing for the Organic Brain",
-    title: "Executive Function in the Vault: Systems That Survive When Motivation Fades",
-    subtitle: "Most productivity systems assume a robotic, never-flagging human. Here is how to design for the biological, AuDHD mind.",
-    date: "July 2026",
-    readTime: "8 min read",
-    summary: "Why do we abandon complex productivity systems after two weeks? Because they are built for robots. Discover the principles of designing for the Organic Brain: reflective notes that carry executive load, leading with emotional truth, and collapsing next steps to a single non-negotiable.",
-    content: `
-      <h3>The Two-Week Abandonment Cycle</h3>
-      <p>We have all been there: you spend an entire weekend setting up the ultimate productivity dashboard. You create intricate color-coded tags, nested sub-folders, and automated daily review checklists. For twelve days, you feel invincible.</p>
-      <p>On day thirteen, you have a rough morning. You skip the daily review. By day sixteen, your inbox has 40 unrouted items. The system now feels like a demanding boss rather than a supportive partner. You close the app and walk away.</p>
-      <p>Why does this happen? Because traditional systems are designed for a **synthetic brain**—an idealized, never-flagging entity with infinite cognitive battery and linear dopamine.</p>
-
-      <h3>The Organic Brain vs. The Synthetic Brain</h3>
-      <p>One of the most profound realizations in building Commonplace was realizing that the human operator and the AI agent need completely opposite interfaces:</p>
-      <ul>
-        <li><strong>The Synthetic Brain (AI Agent):</strong> Needs rigid schemas, closed vocabularies, strict tool boundaries, and exhaustive deterministic rules.</li>
-        <li><strong>The Organic Brain (Human AuDHD):</strong> Needs visual calm, emotional resonance, zero-friction capture, instant scannability, and supreme forgiveness for missed cadences.</li>
-      </ul>
-
-      <h3>Principle 12: Design for the AuDHD Brain</h3>
-      <p>In our system schema, Principle 12 explicitly governs human interaction: *Reflective notes carry the executive function.* When motivation fades, the system must step in to carry the cognitive weight. Here is how we build that into daily practice:</p>
-
-      <h4>1. Lead with Emotional Truth</h4>
-      <p>When starting a daily standup or periodic review, never force dry status reporting first. Allow space to name the friction, the fatigue, or the excitement. When you clear the emotional buffer, analytical clarity follows naturally.</p>
-
-      <h4>2. Give the Win Space</h4>
-      <p>High-output builders constantly move the goalpost, forgetting what they accomplished yesterday. Commonplace daily logs and periodic retro notes intentionally highlight completed milestones before identifying deficits.</p>
-
-      <h4>3. Collapse to a Single Non-Negotiable</h4>
-      <p>When cognitive load peaks and executive dysfunction threatens paralysis, a 15-item to-do list is a roadblock. Our protocol collapses the day's execution down to **One Thing**—a single, high-leverage action that defines a successful day.</p>
-
-      <h4>4. Kill Ambiguity at the Capture Point</h4>
-      <p>An inbox item titled <em>"Taxes"</em> or <em>"Call Dr."</em> is cognitive poison. It requires executive function just to decipher what the next action is. We enforce **Verb-First Titling** at capture: <em>"Call Dr. Espinosa at 512-555-0199 to request prescription refill."</em> When your future self sees it, execution requires zero friction.</p>
-
-      <h3>A Second Brain That Forgives</h3>
-      <p>The true measure of a knowledge system is not how it performs when you are operating at 100% focus. It is how gracefully it catches you when you are operating at 20%, and how effortlessly it guides you back into flow without guilt or friction.</p>
+      <p>I've had some of the best conversations of my life with an AI. Deep ones, working through a decision, sharpening an idea, actually thinking out loud with something that thought back.</p>
+      <p>Then I'd close the tab. And it was gone.</p>
+      <p>Not paraphrased, gone. Even with memory turned on, whatever we'd built in one conversation didn't carry into the next. I'd assumed AI memory worked something like a person's. It doesn't. It forgets the parts that mattered most.</p>
+      <p>I'd been down this road before. Around 2021 I built my first Obsidian vault, a personal knowledge base, a "second brain." I loved it. Then it got bloated, too much to manage myself, no clear place for anything, until it collapsed under its own weight and I walked away. Back to pen and paper for a while. Then Notion, which turned out to be limiting in a different way.</p>
+      <p>By the time I came back to Obsidian, I had a reason to think it'd stick this time: I could use AI to build it out, fast, in ways I couldn't do alone.</p>
+      <p>So I started small. Every time the AI forgot something important from a conversation, I logged it myself, just so it wouldn't be lost again. A repository. A giant notebook.</p>
+      <p>That notebook didn't stay small. Over time it grew into a CRM, a diary, a project management system, and a living reference library, everything sorted by the part of my life it belonged to. Without quite meaning to, I'd built an operating system. I just called it Commonplace.</p>
+      <p>The notebook worked, but there was a limit to it. I was still the one holding all the rules in my head, where things went, how to file them, what mattered enough to keep. Every new AI conversation, I was re-explaining that too.</p>
+      <p>So I wrote the rules down. Not notes to myself, instructions the AI could actually read and follow. One document that says, in plain terms: here's what this vault is for, here's what belongs where, here's how to handle the situations that come up. It's the operating manual, and it's the first thing any AI reads before it does anything else.</p>
+      <p>That one change did more than any feature I'd added before it. The AI stopped being something I fed information to and started operating the system with me, creating notes, filing them correctly, running weekly reviews, catching the thing I'd forgotten to follow up on. Two different AI models read the same rules and follow them the same way. Either one can pick up exactly where the other left off.</p>
+      <p>A few weeks ago I had an interview lined up with a consulting firm. The recruiter emailed three time options, all Central, 9, 10, or 1. I replied and picked 10.</p>
+      <p>The calendar invite that came back said 11.</p>
+      <p>Easy mistake to make on either end. But if it had gone unnoticed, I'd have shown up an hour off for a call that decided whether I got the job.</p>
+      <p>I didn't catch it by being careful. Part of my routine now is a session where the AI sweeps my email, calendar, and task list together and tells me what doesn't line up. That's where this surfaced, the email I'd sent and the invite I'd gotten back told two different stories, and checking them against each other is what caught it.</p>
+      <p>That's the actual point of Commonplace. Not to hold pretty notes. To hold the facts of my life accurately enough that nothing falls through the gap between one channel and the next.</p>
+      <p>None of this happened because I have some special talent for building software. I don't write code for a living. What I've spent ten years doing, in film production, in enterprise learning and development, now in AI operations, is the same thing every time: take something complicated, and build the part that lets people who aren't experts in it actually use it.</p>
+      <p>Commonplace is a small, personal version of that same instinct. Nobody assigned it. Nobody's paying for it. I built it because living with a system that quietly failed me wasn't something I could leave alone.</p>
+      <p>That's really what this is proof of. Not that I can set up an Obsidian vault. That when something doesn't work, I don't wait for someone else to fix it. I build the fix, watch where it breaks, and build it again.</p>
+      <p>That's not a line I can put on a resume. But it's the only skill that actually matters when the playbook doesn't exist yet, which, in most of the rooms I want to work in, it doesn't.</p>
     `
   }
 ];
